@@ -1,5 +1,7 @@
 import 'package:alarm_app/clock_view.dart';
+import 'package:analog_clock/analog_clock.dart';
 import 'package:flutter/material.dart';
+import 'analog_clock.dart';
 
 
 
@@ -14,11 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        alignment: Alignment.center,
-        color: Color(0xff2D2F41),
-        child: ClockView(),
-      ),
+      body: AnalogClockView(),
     );
   }
 }

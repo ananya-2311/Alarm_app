@@ -20,7 +20,7 @@ class _ClockViewState extends State<ClockView> {
     });
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,8 +86,8 @@ class ClockPainter extends CustomPainter {
     var hourHandY = centerX + 60*sin((dateTime.hour* 30 + dateTime.minute*0.5) * pi /180);
     canvas.drawLine(center, Offset(hourHandX, hourHandY), hourHandBrush);
 
-    var minHandX = centerX + 80*cos(dateTime.minute * pi /150);
-    var minHandY = centerX + 80*sin(dateTime.minute * pi /150);
+    var minHandX = centerX + 80*cos(dateTime.minute * pi /180);
+    var minHandY = centerX + 80*sin(dateTime.minute * pi /180);
     canvas.drawLine(center, Offset(minHandX, minHandY), minHandBrush);
 
     var secHandX = centerX + 80*cos(dateTime.second*6* pi /180);
