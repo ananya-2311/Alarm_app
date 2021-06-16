@@ -22,48 +22,71 @@ class _AnalogClockViewState extends State<AnalogClockView> {
     return Scaffold(
       backgroundColor:Color(0xff2D2F41),
 
-      body: Container(
-        padding: EdgeInsets.fromLTRB(32, 50, 32,32),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("CLOCK",
-            style: TextStyle(fontSize: 24, color: Colors.white),),
+      body: Row(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FlatButton(
+                onPressed: (){},
+                child: Column(
+                  children: [
+                    FlutterLogo(),
+                    Text("Clock",
+                    style: TextStyle(color: Colors.white, fontSize: 14),)
+                  ],
+                ),
+              )
 
-            SizedBox(height: 12,),
-            Text(formattedTime,
-              style: TextStyle(fontSize: 60, color: Colors.white),),
-            Text(formattedDate,
-              style: TextStyle(fontSize: 24, color: Colors.white),),
-            SizedBox(height: 30,),
-            Center(
-              child: AnalogClock(
-                decoration: BoxDecoration(
-                    border: Border.all(width: 10.0, color: Color(0xffeaecff)),
-                    color: Color(0xff444974),
-                    shape: BoxShape.circle),
-                width: 200.0,
-                height: 200,
-                isLive: true,
-                hourHandColor: Colors.pink,
-                minuteHandColor: Colors.red,
-                showSecondHand: true,
-                numberColor: Color(0xffeaecff),
-                showNumbers: true,
-                textScaleFactor: 1.4,
-                showTicks: true,
-                showDigitalClock: true,
-                datetime: DateTime(2019, 1, 1, 9, 12, 15),
+            ],
+          ),
+          VerticalDivider(color: Colors.white54,),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 64, 32,32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("CLOCK",
+                  style: TextStyle(fontSize: 24, color: Colors.white),),
+
+                  SizedBox(height: 12,),
+                  Text(formattedTime,
+                    style: TextStyle(fontSize: 60, color: Colors.white),),
+                  Text(formattedDate,
+                    style: TextStyle(fontSize: 24, color: Colors.white),),
+                  SizedBox(height: 30,),
+                  Center(
+                    child: AnalogClock(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 10.0, color: Color(0xffeaecff)),
+                          color: Color(0xff444974),
+                          shape: BoxShape.circle),
+                      width: 200.0,
+                      height: 200,
+                      isLive: true,
+                      hourHandColor: Colors.pink,
+                      minuteHandColor: Colors.red,
+                      showSecondHand: true,
+                      numberColor: Color(0xffeaecff),
+                      showNumbers: true,
+                      textScaleFactor: 1.4,
+                      showTicks: true,
+                      showDigitalClock: true,
+                      datetime: DateTime(2019, 1, 1, 9, 12, 15),
+                    ),
+                  ),
+                  SizedBox(height: 30,),
+                  Text("TimeZone",
+                    style: TextStyle(fontSize: 20, color: Colors.white),),
+
+                  Text("UTC"  + offsetSign + timezoneString ,
+                    style: TextStyle(fontSize: 24, color: Colors.white),),
+                ],
               ),
             ),
-            SizedBox(height: 20,),
-            Text("TimeZone",
-              style: TextStyle(fontSize: 20, color: Colors.white),),
-
-            Text("UTC"  + offsetSign + timezoneString ,
-              style: TextStyle(fontSize: 24, color: Colors.white),),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
