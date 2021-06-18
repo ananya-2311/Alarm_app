@@ -27,16 +27,9 @@ class _AnalogClockViewState extends State<AnalogClockView> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlatButton(
-                onPressed: (){},
-                child: Column(
-                  children: [
-                    FlutterLogo(),
-                    Text("Clock",
-                    style: TextStyle(color: Colors.white, fontSize: 14),)
-                  ],
-                ),
-              )
+              buildMenuButton("ALARM"),
+              buildMenuButton("STOPWATCH"),
+              buildMenuButton("TIMER"),
 
             ],
           ),
@@ -92,6 +85,13 @@ class _AnalogClockViewState extends State<AnalogClockView> {
   }
 }
 
-//Container(
-//alignment: Alignment.center,
-//color: Color(0xff2D2F41),
+FlatButton buildMenuButton(String title){
+  return FlatButton(onPressed: (){},
+  child: Column(
+    children: [
+      FlutterLogo(),
+      SizedBox(height: 16,),
+      Text(title,style: TextStyle(color: Colors.white, fontSize: 14),)
+    ],
+  ),);
+}
