@@ -1,3 +1,5 @@
+
+
 import 'package:analog_clock/analog_clock.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -27,9 +29,10 @@ class _AnalogClockViewState extends State<AnalogClockView> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              buildMenuButton("ALARM"),
-              buildMenuButton("STOPWATCH"),
-              buildMenuButton("TIMER"),
+              buildMenuButton('images/alarm.jpg', "ALARM"),
+              buildMenuButton('images/stopwatch.png', "STOPWATCH"),
+              buildMenuButton('images/timer.png', "TIMER"),
+              buildMenuButton('images/clock.png', "CLOCK"),
 
             ],
           ),
@@ -85,11 +88,20 @@ class _AnalogClockViewState extends State<AnalogClockView> {
   }
 }
 
-FlatButton buildMenuButton(String title){
+FlatButton buildMenuButton(String image, String title){
   return FlatButton(onPressed: (){},
   child: Column(
     children: [
-      FlutterLogo(),
+      Container(
+        height: 100,
+        width: 100,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(image),
+          ),
+        ),
+      ),
       SizedBox(height: 16,),
       Text(title,style: TextStyle(color: Colors.white, fontSize: 14),)
     ],
